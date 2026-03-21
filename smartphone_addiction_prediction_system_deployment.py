@@ -107,7 +107,6 @@ st.write("")
 # =========================
 if st.button("🚀 Predict Addiction Risk"):
 
-    # ✅ Manual Encoding (NO ERROR)
     gender_map = {"Male": 1, "Female": 0}
     stress_map = {"Low": 0, "Medium": 1, "High": 2}
     academic_map = {"Low": 0, "Medium": 1, "High": 2}
@@ -116,35 +115,28 @@ if st.button("🚀 Predict Addiction Risk"):
     stress_val = stress_map[stress]
     academic_val = academic_map[academic]
 
-    # Input order MUST match training
-    input_data = np.array([[
-        gender_val,
-        screen_time,
-        social_media,
-        gaming,
-        sleep,
-        notifications,
-        app_opens,
-        stress_val,
-        academic_val
-    ]])
+    input_data = pd.DataFrame([{
+        "gender": gender_val,
+        "daily_screen_time_hours": screen_time,
+        "social_media_hours": social_media,
+        "gaming_hours": gaming,
+        "sleep_hours": sleep,
+        "notifications_per_day": notifications,
+        "app_opens_per_day": app_opens,
+        "stress_level": stress_val,
+        "academic_work_impact": academic_val
+    }])
 
     prediction = model.predict(input_data)[0]
     prob = model.predict_proba(input_data)[0][1]
 
-    st.write("---")
-
-    # RESULT
     if prediction == 1:
         st.error("⚠ High Risk of Smartphone Addiction")
     else:
         st.success("✅ Low Risk of Smartphone Addiction")
 
-    # Probability
-    st.subheader("📊 Prediction Confidence")
     st.progress(prob)
-    st.write(f"Probability of Addiction: {prob*100:.2f}%")
-
+    st.write(f"Probability: {prob*100:.2f}%")
 # =========================
 # FOOTER
 # =========================
