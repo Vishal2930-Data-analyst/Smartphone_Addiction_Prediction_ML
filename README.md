@@ -1,4 +1,4 @@
-## 📱 Smartphone Addiction Prediction System 🚀
+# 📱 Smartphone Addiction Prediction System 🚀
 An end-to-end Machine Learning project that predicts smartphone addiction using user behavioral and lifestyle data. The model is trained using XGBoost and deployed through a modern Streamlit web application for real-time predictions.
 ## 🎯 Project Overview
 This project analyzes user habits such as screen time, social media usage, sleep patterns, and stress levels to determine the likelihood of smartphone addiction.
@@ -30,6 +30,9 @@ This project analyzes user habits such as screen time, social media usage, sleep
 - ⚡ Real-time prediction
 - 📈 Probability score display
 - 📱 Responsive layout
+
+## 🚀 Live Demo
+- https://smartphoneaddictionpredictionml-vishalborse2930.streamlit.app/
 
 ## 📊 Model Performance
 - ✅ Best Model: XGBoost
