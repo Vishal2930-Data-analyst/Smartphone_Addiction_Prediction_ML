@@ -93,6 +93,9 @@ with col1:
     notifications = st.slider("Notifications per Day", 0, 300, 80)
     app_opens = st.slider("App Opens per Day", 0, 200, 40)
     sleep = st.slider("Sleep Hours", 0.0, 12.0, 7.0)
+    age = st.slider("Age", 10, 60, 25)
+    work_study_hours = st.slider("Work/Study Hours", 0.0, 12.0, 6.0)
+    weekend_screen_time = st.slider("Weekend Screen Time", 0.0, 15.0, 7.0)
 
 with col2:
     st.subheader("📈 Personal Details")
@@ -116,16 +119,19 @@ if st.button("🚀 Predict Addiction Risk"):
     academic_val = academic_map[academic]
 
     input_data = pd.DataFrame([{
-        "gender": gender_val,
-        "daily_screen_time_hours": screen_time,
-        "social_media_hours": social_media,
-        "gaming_hours": gaming,
-        "sleep_hours": sleep,
-        "notifications_per_day": notifications,
-        "app_opens_per_day": app_opens,
-        "stress_level": stress_val,
-        "academic_work_impact": academic_val
-    }])
+    "age": age,
+    "gender": gender_val,
+    "daily_screen_time_hours": screen_time,
+    "social_media_hours": social_media,
+    "gaming_hours": gaming,
+    "work_study_hours": work_study_hours,
+    "sleep_hours": sleep,
+    "notifications_per_day": notifications,
+    "app_opens_per_day": app_opens,
+    "weekend_screen_time": weekend_screen_time,
+    "stress_level": stress_val,
+    "academic_work_impact": academic_val
+}])
 
     prediction = model.predict(input_data)[0]
     prob = model.predict_proba(input_data)[0][1]
