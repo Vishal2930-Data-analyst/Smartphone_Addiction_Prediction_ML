@@ -92,13 +92,13 @@ with col1:
     gaming = st.slider("Gaming Hours", 0.0, 10.0, 2.0)
     notifications = st.slider("Notifications per Day", 0, 300, 80)
     app_opens = st.slider("App Opens per Day", 0, 200, 40)
-    work_study_hours = st.slider("Work/Study Hours", 0.0, 12.0, 6.0)
     weekend_screen_time = st.slider("Weekend Screen Time", 0.0, 15.0, 7.0)
 
 with col2:
     st.subheader("📈 Personal Details")
     age = st.slider("Age", 10, 60, 25)
     sleep = st.slider("Sleep Hours", 0.0, 12.0, 7.0)
+    work_study_hours = st.slider("Work/Study Hours", 0.0, 12.0, 6.0)
     gender = st.selectbox("Gender", ["Male", "Female"])
     stress = st.selectbox("Stress Level", ["Low", "Medium", "High"])
     academic = st.selectbox("Academic Impact", ["Low", "Medium", "High"])
