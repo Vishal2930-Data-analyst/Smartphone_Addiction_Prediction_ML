@@ -141,7 +141,7 @@ if st.button("🚀 Predict Addiction Risk"):
     else:
         st.success("✅ Low Risk of Smartphone Addiction")
 
-    st.progress(prob)
+    st.progress(float(prob))
     st.write(f"Probability: {prob*100:.2f}%")
 # =========================
 # FOOTER
